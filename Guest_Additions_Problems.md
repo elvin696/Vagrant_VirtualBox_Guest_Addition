@@ -1,41 +1,42 @@
-Firstly you have to run this command in Local computer
+1) Firstly you have to run this command in Local computer
 
-vagrant plugin install vagrant-vbguest
+2) vagrant plugin install vagrant-vbguest
 
 then > 
 
 # Start the old vagrant
-vagrant init centos-7
-vagrant up
+3) vagrant init centos-7
+4) vagrant up
 # You should see a message like:
 # Installing Virtualbox VBoxGuestAdditions_6.1.16 - guest version is unknown
 
 
-vagrant ssh
+5) vagrant ssh
 
-sudo yum install -y dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers install xorg-x11-drivers xorg-x11-utils kernel-devel
+6) sudo yum install -y dkms binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers install xorg-x11-drivers xorg-x11-utils kernel-devel
 
-sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-13.noarch.rpm
-sudo yum -y update
-sudo yum -y install wget nano
-cd /opt
-sudo wget -c http://download.virtualbox.org/virtualbox/6.1.16/VBoxGuestAdditions_6.1.16.iso -O VBoxGuestAdditions_6.1.16.iso
+7) sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-13.noarch.rpm
+8) sudo yum -y update
+9) sudo yum -y install wget nano
+10) cd /opt
+11) sudo wget -c http://download.virtualbox.org/virtualbox/6.1.16/VBoxGuestAdditions_6.1.16.iso -O VBoxGuestAdditions_6.1.16.iso
 
-sudo mount VBoxGuestAdditions_6.1.16.iso -o loop /mnt
-cd /mnt
-sudo sh VBoxLinuxAdditions.run --nox11
-cd /opt
-sudo rm *.iso
-cat /dev/null > ~/.bash_history
-exit
+12) sudo mount VBoxGuestAdditions_6.1.16.iso -o loop /mnt
+13) cd /mnt
+14) sudo sh VBoxLinuxAdditions.run --nox11
+15) cd /opt
+16) cat /dev/null > ~/.bash_history
+17) exit
 
 # Now check that the Guest Additions work
-vagrant halt
-vagrant up
+18) vagrant halt
+19) vagrant up
 
 # Package the new VM
 
-vagrant halt
-vagrant package
-mv package.box centos-7.box
+20) vagrant halt
+21) vagrant package
+22) mv package.box centos-7.box
+
+
 
